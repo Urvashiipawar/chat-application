@@ -1,5 +1,6 @@
 using System.Text;
 using API.data;
+using API.Endpoints;
 using API.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -40,6 +41,9 @@ builder.Services.AddAuthentication(opt =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
+builder.Services.AddAuthorization(); 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,6 +55,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapAccountEndpoint();
 
 
 
