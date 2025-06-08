@@ -1,6 +1,8 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using API.command;
 using API.Models;
+using API.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +17,8 @@ public static class AccountEndpoint
 
         group.MapPost("/register", async (HttpContext context,
         UserManager<AppUser> UserManager, [FromForm] string fullName,
-        [FromForm] string email, [FromForm] string password, [FromForm] string userName)
+        [FromForm] string email, [FromForm] string password, [FromForm] string userName,
+        [FromForm] IFormFile? profileImage )
         =>
         {
             var userFromDb = await UserManager.FindByEmailAsync(email);
@@ -26,11 +29,20 @@ public static class AccountEndpoint
 
             }
 
+            if (profileImage is null)
+            {
+                return Results.BadRequest(Response<string>.Failure("Profile image is Required."));
+            }
+
+            var picture = await FileUpload.Upload(profileImage);
+            picture = $"{context.Request.Scheme}://{context.Request.Host}/uploads/{picture}";
+
             var user = new AppUser
             {
                 Email = email,
                 FullName = fullName,
-                UserName = userName
+                UserName = userName,
+                ProfileImage = picture
             };
 
             var result = await UserManager.CreateAsync(user, password);
