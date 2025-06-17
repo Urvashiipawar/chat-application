@@ -1,12 +1,125 @@
 {
   "Version": 1,
-  "Hash": "A5c6GKfqW+kOYxX7+ezU9WKq8ts6/mK8f4alHUBjdmk=",
+  "Hash": "taCUNtFdQ1boqdekXG5ookoS15v8xX85L0SZsCViqIU=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "API/wwwroot",
+      "Source": "API",
+      "ContentRoot": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/",
+      "BasePath": "_content/API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/",
+      "BasePath": "_content/API",
+      "RelativePath": "uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "357w6ljhqj",
+      "Integrity": "2WkJxL5MMfKNL/C+yGqiDEQLU1DAMQrCTCKeWtZIb1g=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.357w6ljhqj.png",
+      "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4085722"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2WkJxL5MMfKNL/C+yGqiDEQLU1DAMQrCTCKeWtZIb1g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 15:10:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "357w6ljhqj"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2WkJxL5MMfKNL/C+yGqiDEQLU1DAMQrCTCKeWtZIb1g="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
+      "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4085722"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2WkJxL5MMfKNL/C+yGqiDEQLU1DAMQrCTCKeWtZIb1g=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 08 Jun 2025 15:10:02 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2WkJxL5MMfKNL/C+yGqiDEQLU1DAMQrCTCKeWtZIb1g="
+        }
+      ]
+    }
+  ]
 }

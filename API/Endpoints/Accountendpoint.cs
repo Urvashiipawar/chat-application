@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using API.command;
+using API.DTOs;
 using API.Models;
 using API.Services;
 using Microsoft.AspNetCore.Authentication;
@@ -56,6 +57,33 @@ public static class AccountEndpoint
 
         }).DisableAntiforgery();
 
+
+        group.MapPost("/login", async (UserManager<AppUser> userManager,TokenService tokenService, LoginDto dto) =>
+        {
+            if (dto is null)
+            {
+                return Results.BadRequest(Response<string>.Failure("Invalid login details"));
+
+            }
+
+            var user = await userManager.FindByEmailAsync(dto.Email);
+
+            if (user is null)
+            {
+                return Results.BadRequest(Response<string>.Failure("User not found"));
+            }
+
+            var result = await userManager.CheckPasswordAsync(user!, dto.Password);
+
+            if (!result)
+            {
+                return Results.BadRequest(Response<string>.Failure("Invalid Password"));
+            }
+
+            var token = tokenService.GenerateToken(user.Id, user.UserName!);
+
+            return Results.Ok(Response<String>.Success(token, "Login successful"));
+        });
         return group;
 
     }
