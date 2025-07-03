@@ -9,7 +9,13 @@ public static class ClaimsPrinciplesExtensions
     {
         return user.FindFirstValue(ClaimTypes.Name) ?? throw new Exception("Cannot get username");
 
-        
+
+    }
+
+    public static Guid GetUserId(this ClaimsPrincipal user)
+    {
+        return Guid.Parse(user.FindFirstValue(ClaimTypes.NameIdentifier)
+        ?? throw new Exception("Cannot get userId"));
     }
 
 }

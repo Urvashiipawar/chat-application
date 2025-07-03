@@ -12,7 +12,7 @@ public class Message
     public DateTime CreatedDate { get; set; }
     public bool IsRead { get; set; }
     public AppUser? Sender { get; set; }
-    public AppUser? Receiver { get; }
+    public AppUser? Receiver { get; set; }
 
 
 }
