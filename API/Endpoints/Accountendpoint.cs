@@ -2,11 +2,13 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using API.command;
 using API.DTOs;
+using API.Extensions;
 using API.Models;
 using API.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Endpoints;
 
@@ -19,7 +21,7 @@ public static class AccountEndpoint
         group.MapPost("/register", async (HttpContext context,
         UserManager<AppUser> UserManager, [FromForm] string fullName,
         [FromForm] string email, [FromForm] string password, [FromForm] string userName,
-        [FromForm] IFormFile? profileImage )
+        [FromForm] IFormFile? profileImage)
         =>
         {
             var userFromDb = await UserManager.FindByEmailAsync(email);
@@ -58,7 +60,7 @@ public static class AccountEndpoint
         }).DisableAntiforgery();
 
 
-        group.MapPost("/login", async (UserManager<AppUser> userManager,TokenService tokenService, LoginDto dto) =>
+        group.MapPost("/login", async (UserManager<AppUser> userManager, TokenService tokenService, LoginDto dto) =>
         {
             if (dto is null)
             {
@@ -84,6 +86,16 @@ public static class AccountEndpoint
 
             return Results.Ok(Response<String>.Success(token, "Login successful"));
         });
+
+
+        group.MapGet("/me", async (HttpContext context, UserManager<AppUser> UserManager) =>
+        {
+            var currentLoggedInUserId = context.User.GetUserId();
+
+            var currentLoggedInUser = await UserManager.Users.SingleOrDefaultAsync(x => x.Id == currentLoggedInUserId.ToString());
+            return Results.Ok(Response<AppUser>.Success(currentLoggedInUser!, "User fetched Successfully."));
+        }).RequireAuthorization();
+        
         return group;
 
     }
