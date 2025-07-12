@@ -1,8 +1,16 @@
 {
   "Files": [
     {
+      "Id": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png",
+      "PackagePath": "staticwebassets/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png"
+    },
+    {
       "Id": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
       "PackagePath": "staticwebassets/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png"
+    },
+    {
+      "Id": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png",
+      "PackagePath": "staticwebassets/uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png"
     },
     {
       "Id": "obj/Debug/net9.0/staticwebassets/msbuild.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

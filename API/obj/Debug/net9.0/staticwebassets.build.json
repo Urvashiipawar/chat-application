@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "taCUNtFdQ1boqdekXG5ookoS15v8xX85L0SZsCViqIU=",
+  "Hash": "ohpocpV5Zt3SqDLaEqxpVNxk06oER6RikRzoGWGsb1U=",
   "Source": "API",
   "BasePath": "_content/API",
   "Mode": "Default",
@@ -16,6 +16,27 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/",
+      "BasePath": "_content/API",
+      "RelativePath": "uploads/265a1505-d0b5-42ea-bd74-a12955496daa#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ju3p50aooq",
+      "Integrity": "u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png"
+    },
     {
       "Identity": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
       "SourceId": "API",
@@ -36,9 +57,112 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png"
+    },
+    {
+      "Identity": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png",
+      "SourceId": "API",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/",
+      "BasePath": "_content/API",
+      "RelativePath": "uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ju3p50aooq",
+      "Integrity": "u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png"
     }
   ],
   "Endpoints": [
+    {
+      "Route": "uploads/265a1505-d0b5-42ea-bd74-a12955496daa.ju3p50aooq.png",
+      "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5685646"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 12 Jul 2025 17:49:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ju3p50aooq"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png",
+      "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5685646"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 12 Jul 2025 17:49:01 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA="
+        }
+      ]
+    },
     {
       "Route": "uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.357w6ljhqj.png",
       "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/98ee88b0-a43f-4fa1-9442-3835c250fa4e.png",
@@ -118,6 +242,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-2WkJxL5MMfKNL/C+yGqiDEQLU1DAMQrCTCKeWtZIb1g="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.ju3p50aooq.png",
+      "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5685646"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 12 Jul 2025 17:48:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ju3p50aooq"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png",
+      "AssetFile": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/f4b18590-1dcc-4ed1-811d-8468629b2ed8.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5685646"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 12 Jul 2025 17:48:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-u6SukgE/Zzc4WFL6UI10fwKu0R+SdNnfCI6Fh52R6qA="
         }
       ]
     }

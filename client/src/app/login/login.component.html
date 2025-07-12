@@ -1,15 +1,14 @@
-<form #userform= "ngForm" (ngSubmit)="register()" class = "md:flex justify-center px-20 bg-white gap-10">
+<form #userform= "ngForm" (ngSubmit)="login()" class = "md:flex justify-center px-20 bg-white gap-10">
 
     <div class="h-auto w-3/5" style="background-image: url('register.jpg'); background-repeat: no-repeat; background-size: contain; background-color: white; background-position: bottom;">
        
     </div>
     <div class="bg-white my-10 rounded w-1/4 flex flex-col gap-3 shadow-sm drop-shadow-md">
-        <div class ="text-center">
-        <div class ="flex justify-center">
-            <img [src]="profilePicture" class="rounded-full object-cover bg-blue-800 h-24 w-24">
-        </div>
+        <div class ="text-center mt-10">
+            <i class="material-icons text-5xl text-blue-950 bg-white">person</i>
+        
         <div class="text-2xl my-2 font-medium">
-          register
+          Login
           </div>
         </div>
         <div class ="w-full px-4">
@@ -23,25 +22,9 @@
                 }
             </mat-form-field>
 
-            <mat-form-field class="w-full" apperance="fill">
-                <mat-label>Full Name</mat-label>
-                <input matInput required name="fullName" [(ngModel)]="fullName" #fullNameModel="ngModel"  placeholder="Full Name" />
-                @if(fullNameModel.errors?.['required']){
-                <mat-error>
-                    Full Name is required.
-                </mat-error>
-                }
-            </mat-form-field>
+           
 
-            <mat-form-field class="w-full" apperance="fill">
-                <mat-label>User Name</mat-label>
-                <input matInput name="userName" [(ngModel)]="userName" required #userNameModel ="ngModel" placeholder="UserName" />
-                @if(userNameModel.errors?.['required']){
-                <mat-error>
-                    Username is required.
-                </mat-error>
-              }
-            </mat-form-field>
+           
 
             <mat-form-field class="w-full" apperance="fill">
                 <mat-label>Password</mat-label>
@@ -56,18 +39,10 @@
                 }
             </mat-form-field>
 
-            <input hidden
-            (change)="onFileSelected($event)"
-            type="file" #pic placeholder="Profile Image" />
-            <button 
-            (click)="pic.click()"
-             type="button" class="w-full flex items-center gap-2 justify-center mb-5 bg-green-900 text-white rounded-md p-2">
-                <mat-icon>add_a_photo</mat-icon>
-                <span>Uplode Image</span>
-            </button>
+           
 
             <button type="submit" [disabled]="!userform.valid" class="w-full mb-5 bg-blue-900 text-white rounded-md p-2 disabled:opacity-30">
-                Register
+                Login
             </button>
         </div>
     </div>
