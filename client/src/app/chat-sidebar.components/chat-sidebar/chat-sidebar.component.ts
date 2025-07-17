@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
 import { TitleCasePipe } from '@angular/common';
 import { ChatService } from '../../services/chat.service';
 import { User } from '../../models/user';
+import { TypingIndicator } from '../../components/typing-indicator/typing-indicator';
 
 @Component({
   selector: 'app-chat-sidebar',
-  imports: [MatIconModule, MatMenuModule, TitleCasePipe],
+  imports: [MatIconModule, MatMenuModule, TitleCasePipe, TypingIndicator],
   templateUrl: './chat-sidebar.component.html',
   styles: ``
 })
@@ -31,5 +32,6 @@ export class ChatSidebarComponent implements OnInit {
 
   openChatWindow(user: User){
     this.chatService.currentOpendedChat.set(user);
+    this.chatService.loadMessages(1);
   }
 }
