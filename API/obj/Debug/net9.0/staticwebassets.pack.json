@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/09fd6fd6-b069-44eb-ac40-282b73c76515.webp",
+      "PackagePath": "staticwebassets/uploads/09fd6fd6-b069-44eb-ac40-282b73c76515.webp"
+    },
+    {
       "Id": "/Users/urvashipawar/Downloads/chatapp/API/wwwroot/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png",
       "PackagePath": "staticwebassets/uploads/265a1505-d0b5-42ea-bd74-a12955496daa.png"
     },
