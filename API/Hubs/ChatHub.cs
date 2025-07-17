@@ -89,8 +89,9 @@ public class ChatHub(UserManager<AppUser> userManager, AppDbContext context) : H
             }
 
         }
+        await Task.Delay(1000);
 
-        await Clients.User(currentUser.Id).SendAsync("ReceiveMessageList");
+        await Clients.User(currentUser.Id).SendAsync("ReceiveMessageList", messages);
 
     }
 
@@ -111,7 +112,10 @@ public class ChatHub(UserManager<AppUser> userManager, AppDbContext context) : H
         context.Messages.Add(newMsg);
         await context.SaveChangesAsync();
 
-        await Clients.User(recipientId).SendAsync("ReceiveNewMessage", newMsg);
+        if (!string.IsNullOrEmpty(recipientId))
+        {
+            await Clients.User(recipientId).SendAsync("ReceiveNewMessage", newMsg);
+        }
 
     }
 
