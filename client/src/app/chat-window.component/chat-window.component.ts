@@ -13,7 +13,7 @@ import { ChatBoxComponent } from "../components/chat-box-component/chat-box.comp
   styles: ``
 })
 export class ChatWindowComponent {
-  @ViewChild('chatBox') chatContainer?: ElementRef;
+  @ViewChild('chatBoxComponent') chatContainer?: ElementRef;
   chatService = inject(ChatService);
   message: string ='';
 

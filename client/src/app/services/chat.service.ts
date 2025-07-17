@@ -21,8 +21,19 @@ export class ChatService {
   private hubConnection?: HubConnection; 
 
   startConnection(token:string,senderId?:string){
+    if (this.hubConnection?.state === HubConnectionState.Connected) return;
+
+    if(this.hubConnection){
+
+      this.hubConnection.off('ReceiveNewMessage');
+      this.hubConnection.off('ReceiveMessageList');
+      this.hubConnection.off('OnlineUsers');
+      this.hubConnection.off('NotifyTypingToUser');
+      this.hubConnection.off('Notify');
+    }
+
     this.hubConnection = new HubConnectionBuilder()
-    .withUrl(`${this.hubUrl}?senderId=${senderId || ''}`,{ accessTokenFactory: ()=> token})
+    .withUrl(`${this.hubUrl}?senderId=${senderId || ''}`,{ accessTokenFactory: ()=> token,})
     .withAutomaticReconnect().build();
 
     this.hubConnection.start()
@@ -53,7 +64,7 @@ export class ChatService {
         );
       });
 
-      this.hubConnection!.on("NotifyTypingToUser", (senderUserName)=>{
+      this.hubConnection!.on('NotifyTypingToUser', (senderUserName)=>{
         this.onlineUsers.update(users=>
           users.map((user)=>{
             if(user.userName === senderUserName){
@@ -76,13 +87,15 @@ export class ChatService {
 
       
 
-      this.hubConnection!.on("ReceiveMessageList",(message)=>{
+      this.hubConnection!.on('ReceiveMessageList',(message)=>{
         this.isLoading.update(()=>true);
         this.chatMessages.update(messages=>[...message,...messages]);
         this.isLoading.update(()=>false);
       });
 
       this.hubConnection!.on('ReceiveNewMessage', (message:Message)=>{
+        let audio = new Audio('assets/notification.mp3');
+        audio.play();
         document.title = '(1) New Message';
 
         this.chatMessages.update((messages) => [...messages,message]);
