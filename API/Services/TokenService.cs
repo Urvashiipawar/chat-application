@@ -18,7 +18,7 @@ public class TokenService
     public string GenerateToken(string userId, string userName)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.ASCII.GetBytes(_config["JWTSetting:SecurityKey"]!);
+        var key = Encoding.UTF8.GetBytes(_config["JWTSetting:SecurityKey"]!);
         var claim = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier,userId),

@@ -52,7 +52,7 @@ builder.Services.AddAuthentication(opt =>
     {
         OnMessageReceived = context =>
         {
-            var accessToken = context.Request.Query["acess_token"];
+            var accessToken = context.Request.Query["access_token"];
             var path = context.HttpContext.Request.Path;
 
             if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
@@ -84,6 +84,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.UseRouting();
+
 app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:4200", "https://localhost:4200"));
 
 //app.UseHttpsRedirection();
@@ -91,9 +93,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseStaticFiles();
 app.MapHub<ChatHub>("hubs/chat");
+app.MapHub<VideoChatHub>("hubs/video");
 app.MapAccountEndpoint();
 
 
 
 app.Run();
+
 

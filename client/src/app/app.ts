@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { VideoChatService } from './services/video-chat.service';
+import { AuthService } from './services/auth.service';
+import {MatDialog} from '@angular/material/dialog'
+import { VideoChatComponent } from './video-chat/video-chat.component';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +11,35 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit{
   title = 'client';
+
+  private signalRService = inject(VideoChatService);
+  private authService = inject(AuthService);
+  private dialog = inject(MatDialog);
+
+
+  ngOnInit(): void {
+    if(!this.authService.getAccessToken) return;
+    this.signalRService.startConnection();
+    this.startOfferReceive();
+  }
+
+  startOfferReceive(){
+    this.signalRService.offerReceived.subscribe(async(data)=>{
+      if(data){
+        let audio = new Audio('assets/phone-ring.mp3');
+        audio.play();
+        this.dialog.open(VideoChatComponent,{
+          width:"400px",
+          height:"600px",
+          disableClose:false,
+        });
+
+        this.signalRService.remoteUserId = data.senderId;
+        this.signalRService.incomingCall = true;
+
+      }
+    })
+  }
 }
