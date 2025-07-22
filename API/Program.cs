@@ -11,22 +11,29 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(
-    options =>
-    {
-        options.AddDefaultPolicy(builder =>
+var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: myAllowSpecificOrigins,
+        policy =>
         {
-            builder.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials();
+            policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials();
         });
-    }
-);
+});
+
 var Jwtsetting = builder.Configuration.GetSection("JWTSetting");
 
-builder.Services.AddDbContext<AppDbContext>(x => x.UseSqlite("Data Source = chat.db"));
+// --- FIX #1: Change from SQL Server to In-Memory Database ---
+// builder.Services.AddDbContext<AppDbContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("ChatAppDb"));
+
 
 builder.Services.AddIdentityCore<AppUser>()
-.AddEntityFrameworkStores<AppDbContext>()
-.AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<AppDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<TokenService>();
 
@@ -35,7 +42,6 @@ builder.Services.AddAuthentication(opt =>
     opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     opt.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-
 }).AddJwtBearer(option =>
 {
     option.SaveToken = true;
@@ -54,31 +60,20 @@ builder.Services.AddAuthentication(opt =>
         {
             var accessToken = context.Request.Query["access_token"];
             var path = context.HttpContext.Request.Path;
-
             if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/hubs"))
             {
                 context.Token = accessToken;
             }
-
             return Task.CompletedTask;
         }
     };
+});
 
-
-}
-
-);
-
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
 builder.Services.AddSignalR();
-
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -86,18 +81,24 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 
-app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:4200", "https://localhost:4200"));
+app.UseCors(myAllowSpecificOrigins);
 
-//app.UseHttpsRedirection();
+// --- FIX #2: Comment out the database migration logic ---
+// In-Memory databases do not support migrations, so this line will cause an error.
+/*
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.Migrate();
+}
+*/
+
 app.UseAuthentication();
 app.UseAuthorization();
+
 app.UseStaticFiles();
 app.MapHub<ChatHub>("hubs/chat");
 app.MapHub<VideoChatHub>("hubs/video");
 app.MapAccountEndpoint();
 
-
-
 app.Run();
-
-
