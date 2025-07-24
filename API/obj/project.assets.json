@@ -3336,11 +3336,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/urvashipawar/Downloads/chatapp copy 3/API/API.csproj",
+      "projectUniqueName": "/Users/urvashipawar/Downloads/chatapp/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/urvashipawar/Downloads/chatapp copy 3/API/API.csproj",
+      "projectPath": "/Users/urvashipawar/Downloads/chatapp/API/API.csproj",
       "packagesPath": "/Users/urvashipawar/.nuget/packages/",
-      "outputPath": "/Users/urvashipawar/Downloads/chatapp copy 3/API/obj/",
+      "outputPath": "/Users/urvashipawar/Downloads/chatapp/API/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/urvashipawar/.nuget/NuGet/NuGet.Config"
